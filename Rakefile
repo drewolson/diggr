@@ -2,11 +2,12 @@
 
 require 'rubygems'
 require 'hoe'
-require './lib/diggr.rb'
+require 'need'
+need { 'lib/diggr.rb' }
 
 Hoe.new('diggr', Diggr::VERSION) do |p|
-  # p.rubyforge_name = 'diggrx' # if different than lowercase project name
-  # p.developer('FIX', 'FIX@example.com')
+  p.developer('Drew Olson', 'drew@drewolson.org')
+  p.extra_deps << ['need', '>= 1.0.2']
 end
 
 # vim: syntax=Ruby
