@@ -2,6 +2,8 @@ History.txt
 Manifest.txt
 README.txt
 Rakefile
-bin/diggr
 lib/diggr.rb
-test/test_diggr.rb
+lib/diggr/constants.rb
+lib/diggr/digg.rb
+lib/diggr/request.rb
+test/test_digg.rb
