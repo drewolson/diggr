@@ -4,7 +4,9 @@ require 'need'
 need { '../lib/diggr/digg' }
 
 class TestDigg < Test::Unit::TestCase
-  def test_true
-    assert true
+  def test_instantiate_class
+    assert_nothing_raised do
+      Diggr::Digg.new
+    end
   end
 end
