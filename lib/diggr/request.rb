@@ -16,17 +16,14 @@ module Diggr
       @options = params.inject("") do |options,(key,val)|
         options + "&#{key}=#{cleanse(val)}"
       end
-
       self
     end
 
     def method_missing(name,*args,&block)
       @end_point += "/#{name}"
-
       unless args.empty?
         @end_point += "/#{args.join(',')}"
       end 
-
       self
     end
 
