@@ -15,8 +15,10 @@ module Diggr
       :users,
       :user
     ]
-    HOST = "http://services.digg.com"
+    HOST = "services.digg.com"
+    PORT = 80
     USER_AGENT = 'diggr'
-    APP_KEY = 'diggr'
+    APP_KEY = 'http://diggr.rubyforge.org'
+    RESPONSE_TYPE = 'application/json'
   end
 end
