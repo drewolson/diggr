@@ -17,6 +17,6 @@ module Diggr
     ]
     HOST = "http://services.digg.com"
     USER_AGENT = 'diggr'
-    API_KEY = 'diggr'
+    APP_KEY = 'diggr'
   end
 end
