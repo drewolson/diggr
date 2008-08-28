@@ -2,6 +2,7 @@ require 'cgi'
 require 'rubygems'
 require 'need'
 need { 'constants' }
+need { 'json_parser' }
 
 module Diggr
   class Request
@@ -19,13 +20,28 @@ module Diggr
       @end_point += "/#{name}"
 
       unless args.empty?
-        @end_point += "/#{args.join('/')}"
+        @end_point += "/#{args.join(',')}"
       end 
 
       self
     end
 
+    def each
+      fetch.each do |item|
+        yield item
+      end
+    end
+
+    def fetch
+      response = make_request
+      Diggr::JSONParser.parse(response)
+    end
+
     private
+
+    def make_request
+
+    end
 
     def cleanse(val)
       if val.kind_of? String
@@ -35,7 +51,7 @@ module Diggr
     end
 
     def uri
-      uri = Diggr::HOST + @end_point + "?" + Diggr::API_KEY
+      uri = Diggr::Constants::HOST + @end_point + "?" + "appkey=#{Diggr::Constants::APP_KEY}"
       uri += @options if @options
       uri
     end

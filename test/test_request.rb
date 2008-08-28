@@ -57,4 +57,32 @@ class TestRequest < Test::Unit::TestCase
 
     assert_equal 2, request.send(:cleanse,2)
   end
+
+  def test_simple_uri
+    request = Diggr::Request.new
+    request.stories
+
+    assert_equal 'http://services.digg.com/stories?appkey=diggr', request.send(:uri)
+  end
+
+  def test_simple_uri_with_options
+    request = Diggr::Request.new
+    request.stories.options(:count => 3)
+
+    assert_equal 'http://services.digg.com/stories?appkey=diggr&count=3', request.send(:uri)
+  end
+
+  def test_complex_uri
+    request = Diggr::Request.new
+    request.story(1).diggs
+
+    assert_equal 'http://services.digg.com/story/1/diggs?appkey=diggr', request.send(:uri)
+  end
+
+  def test_comma_seperated_args_product_correct_endpoint
+    request = Diggr::Request.new
+    request.stories(1,2,3,4)
+
+    assert_equal '/stories/1,2,3,4', request.send(:instance_variable_get,"@end_point")
+  end
 end
