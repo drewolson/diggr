@@ -9,6 +9,7 @@ module Diggr
   class Request
     def initialize
       @end_point = ''
+      @options = nil
     end
 
     def options(params)
@@ -60,7 +61,7 @@ module Diggr
     end
 
     def path
-      path = @end_point + "?" + "appkey=#{cleanse(Diggr::Constants::APP_KEY)}"
+      path = @end_point + "?appkey=#{cleanse(Diggr::Constants::APP_KEY)}"
       path += @options if @options
       path
     end
