@@ -1,4 +1,5 @@
 require 'cgi'
+require 'net/http'
 require 'rubygems'
 require 'need'
 need { 'constants' }
@@ -14,6 +15,8 @@ module Diggr
       @options = params.inject("") do |options,(key,val)|
         options + "&#{key}=#{cleanse(val)}"
       end
+
+      self
     end
 
     def method_missing(name,*args,&block)
@@ -34,13 +37,19 @@ module Diggr
 
     def fetch
       response = make_request
-      Diggr::JSONParser.parse(response)
+      #Diggr::JSONParser.parse(response)
     end
 
     private
 
     def make_request
-
+      Net::HTTP.start(Diggr::Constants::HOST,Diggr::Constants::PORT) do |http|
+        http.get(
+          path,
+          'User-Agent' => Diggr::Constants::USER_AGENT,
+          'Accept' => Diggr::Constants::RESPONSE_TYPE
+        ).body
+      end
     end
 
     def cleanse(val)
@@ -50,10 +59,10 @@ module Diggr
       val
     end
 
-    def uri
-      uri = Diggr::Constants::HOST + @end_point + "?" + "appkey=#{Diggr::Constants::APP_KEY}"
-      uri += @options if @options
-      uri
+    def path
+      path = @end_point + "?" + "appkey=#{cleanse(Diggr::Constants::APP_KEY)}"
+      path += @options if @options
+      path
     end
   end
 end

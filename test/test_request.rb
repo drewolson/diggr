@@ -58,25 +58,25 @@ class TestRequest < Test::Unit::TestCase
     assert_equal 2, request.send(:cleanse,2)
   end
 
-  def test_simple_uri
+  def test_simple_path
     request = Diggr::Request.new
     request.stories
 
-    assert_equal 'http://services.digg.com/stories?appkey=diggr', request.send(:uri)
+    assert_equal '/stories?appkey=http%3A%2F%2Fdiggr.rubyforge.org', request.send(:path)
   end
 
-  def test_simple_uri_with_options
+  def test_simple_path_with_options
     request = Diggr::Request.new
     request.stories.options(:count => 3)
 
-    assert_equal 'http://services.digg.com/stories?appkey=diggr&count=3', request.send(:uri)
+    assert_equal '/stories?appkey=http%3A%2F%2Fdiggr.rubyforge.org&count=3', request.send(:path)
   end
 
-  def test_complex_uri
+  def test_complex_path
     request = Diggr::Request.new
     request.story(1).diggs
 
-    assert_equal 'http://services.digg.com/story/1/diggs?appkey=diggr', request.send(:uri)
+    assert_equal '/story/1/diggs?appkey=http%3A%2F%2Fdiggr.rubyforge.org', request.send(:path)
   end
 
   def test_comma_seperated_args_product_correct_endpoint
