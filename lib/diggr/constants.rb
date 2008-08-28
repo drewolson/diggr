@@ -15,5 +15,7 @@ module Diggr
       :users,
       :user
     ]
+    USER_AGENT = 'diggr'
+    API_KEY = 'diggr'
   end
 end
