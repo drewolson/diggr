@@ -15,6 +15,7 @@ module Diggr
       :users,
       :user
     ]
+    HOST = "http://services.digg.com"
     USER_AGENT = 'diggr'
     API_KEY = 'diggr'
   end
