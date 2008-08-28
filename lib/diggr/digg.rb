@@ -9,7 +9,6 @@ module Diggr
       define_method(method) do |*args|
         request = Diggr::Request.new 
         request.send(method,*args)
-        request
       end
     end
   end
