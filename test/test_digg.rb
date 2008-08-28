@@ -5,6 +5,10 @@ need { '../lib/diggr/digg' }
 need { '../lib/diggr/request' }
 need { '../lib/diggr/constants' }
 
+class Diggr::Request
+  attr_accessor :end_point
+end
+
 class TestDigg < Test::Unit::TestCase
   def test_instantiate_class
     assert_nothing_raised do
@@ -26,5 +30,19 @@ class TestDigg < Test::Unit::TestCase
     assert_raises NoMethodError do
       digg.foo
     end
+  end
+
+  def test_valid_root_method_returns_request_with_corrent_endpoint
+    digg = Diggr::Digg.new
+    request = digg.media
+
+    assert_equal "/media", request.end_point
+  end
+
+  def test_valid_root_method_with_args_returns_request_with_corrent_endpoint
+    digg = Diggr::Digg.new
+    request = digg.media('123')
+
+    assert_equal "/media/123", request.end_point
   end
 end
