@@ -1,6 +1,6 @@
 module Diggr
-  module JSONParser
-    def self.parse(data)
+  class JSONParser
+    def parse(data)
     end
   end
 end
