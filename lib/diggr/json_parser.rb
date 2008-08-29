@@ -12,15 +12,17 @@ module Diggr
     private
 
     def build_objects_from_parsed_json(parsed_data)
-      response_objects = parsed_data.select { |key,val| Diggr::Constants::RESPONSE_CLASSES.include?(key) }[0]
+      response_data = parsed_data.select { |key,val| Diggr::Constants::RESPONSE_CLASSES.include?(key) }[0]
 
-      collection_type, collection_data = response_objects
+      collection_type, collection_data = response_data
 
       klass = find_class(collection_type)
 
-      collection_data.inject([]) do |collection,object_data|
+      object_collection = collection_data.inject([]) do |collection,object_data|
         collection << klass.new_from_parsed_json(object_data) 
       end
+
+      object_collection.size == 1 ? object_collection.first : object_collection
     end
 
     def find_class(collection_type)
