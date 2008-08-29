@@ -5,5 +5,14 @@ Rakefile
 lib/diggr.rb
 lib/diggr/constants.rb
 lib/diggr/digg.rb
+lib/diggr/json_parser.rb
 lib/diggr/request.rb
+lib/diggr/response_classes/container.rb
+lib/diggr/response_classes/error.rb
+lib/diggr/response_classes/topic.rb
+test/test_container.rb
 test/test_digg.rb
+test/test_error.rb
+test/test_json_parser.rb
+test/test_request.rb
+test/test_topic.rb
