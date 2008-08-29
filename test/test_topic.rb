@@ -21,17 +21,14 @@ class TestTopic < Test::Unit::TestCase
       }
     }
 
-    container = Diggr::Container.new
-    container.name = 'Test Container'
-    container.short_name = 'test'
-
-    topic = Diggr::Topic.new
-    topic.name = 'Test Topic'
-    topic.short_name = 'test'
-    topic.container = container
-
-    parsed_topic = Diggr::Topic.new_from_parsed_json(parsed_json_data)
+    topic = Diggr::Topic.new_from_parsed_json(parsed_json_data)
     
-    assert_equal Marshal.dump(topic), Marshal.dump(parsed_topic)
+    parsed_json_data.each do |key,val|
+      if key == 'container'
+        assert_instance_of Diggr::Container, topic.container
+      else
+        assert_equal val, topic.send(key)
+      end
+    end
   end
 end
