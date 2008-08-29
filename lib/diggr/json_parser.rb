@@ -6,7 +6,8 @@ require 'need'
 module Diggr
   class JSONParser
     def parse(data)
-      build_objects_from_parsed_json(JSON.parse(data))
+      data
+      #build_objects_from_parsed_json(JSON.parse(data))
     end
 
     private

@@ -1,44 +1,28 @@
-require 'rubygems'
 require 'test/unit'
+require 'rubygems'
 require 'need'
-need { '../lib/diggr/digg' }
-need { '../lib/diggr/request' }
-need { '../lib/diggr/constants' }
+need { '../lib/diggr/response_classes/digg' }
 
 class TestDigg < Test::Unit::TestCase
-  def test_instantiate_class
+  def test_instantiation
     assert_nothing_raised do
       Diggr::Digg.new
     end
   end
 
-  def test_valid_root_method_returns_a_request_instance
-    digg = Diggr::Digg.new
+  def test_new_from_parsed_json_data
+    parsed_json_data = {
+      'date' => '07292008',
+      'story' => '1',
+      'id' => '2',
+      'user' => 'johndoe',
+      'status' => 'popular'
+    }
 
-    Diggr::Constants::VALID_ROOT_METHODS.each do |method|
-      assert_instance_of Diggr::Request, digg.send(method)
+    digg = Diggr::Digg.new_from_parsed_json(parsed_json_data)
+
+    parsed_json_data.each do |key,val|
+      assert_equal val, digg.send(key)
     end
-  end
-
-  def test_invalid_root_method_throws_error
-    digg = Diggr::Digg.new
-
-    assert_raises NoMethodError do
-      digg.foo
-    end
-  end
-
-  def test_valid_root_method_returns_request_with_corrent_endpoint
-    digg = Diggr::Digg.new
-    request = digg.media
-
-    assert_equal "/media", request.send(:instance_variable_get,"@end_point")
-  end
-
-  def test_valid_root_method_with_args_returns_request_with_corrent_endpoint
-    digg = Diggr::Digg.new
-    request = digg.media('123')
-
-    assert_equal "/media/123", request.send(:instance_variable_get,"@end_point")
   end
 end

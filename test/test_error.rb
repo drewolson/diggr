@@ -16,12 +16,10 @@ class TestError < Test::Unit::TestCase
       'message' => 'test',
     }
 
-    error = Diggr::Error.new
-    error.code = '1234'
-    error.message = 'test'
+    error = Diggr::Error.new_from_parsed_json(parsed_json_data)
 
-    parsed_error = Diggr::Error.new_from_parsed_json(parsed_json_data)
-
-    assert_equal Marshal.dump(error), Marshal.dump(parsed_error)
+    parsed_json_data.each do |key,val|
+      assert_equal val, error.send(key)
+    end
   end
 end

@@ -4,8 +4,11 @@ module Diggr
 
     def self.new_from_parsed_json(data)
       error = Error.new
-      error.code = data['code']
-      error.message = data['message'] 
+
+      data.each do |key,val|
+        error.send("#{key}=",val)
+      end
+
       error
     end
   end
