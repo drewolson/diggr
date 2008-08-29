@@ -4,7 +4,8 @@ need { 'user' }
 
 module Diggr
   class Photo
-    attr_accessor :id, :submit_date, :comments, :title, :user, :src, :href
+    attr_accessor :id, :submit_date, :comments, :title, :user, :src, :href, :originalheight, :originalwidth,
+      :height, :width, :contentType
 
     def self.new_from_parsed_json(data)
       photo = Photo.new

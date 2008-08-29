@@ -2,17 +2,21 @@ require 'rubygems'
 require 'active_support/inflector'
 require 'json'
 require 'need'
+need { 'path_error' }
 
 module Diggr
   class JSONParser
     def parse(data)
-      data
-      #build_objects_from_parsed_json(JSON.parse(data))
+      build_objects_from_parsed_json(JSON.parse(data))
     end
 
     private
 
     def build_objects_from_parsed_json(parsed_data)
+      if parsed_data.has_key?('code') && parsed_data['code'] == 404
+        raise PathError, "specified path returned a 404 error"
+      end
+
       response_data = parsed_data.select { |key,val| Diggr::Constants::RESPONSE_CLASSES.include?(key) }[0]
 
       collection_type, collection_data = response_data
@@ -33,3 +37,4 @@ module Diggr
     end 
   end
 end
+
