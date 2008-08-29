@@ -17,15 +17,15 @@ module Diggr
       :user
     ]
     RESPONSE_CLASSES = [
-      :containers,
-      :errors,
-      :diggs,
-      :comments,
-      :photos,
-      :media,
-      :stories,
-      :topics,
-      :users   
+      "containers",
+      "errors",
+      "diggs",
+      "comments",
+      "photos",
+      "media",
+      "stories",
+      "topics",
+      "users"
     ]
     HOST = "services.digg.com"
     PORT = 80
