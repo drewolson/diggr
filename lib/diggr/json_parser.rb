@@ -21,6 +21,8 @@ module Diggr
 
       collection_type, collection_data = response_data
 
+      return [] if collection_type.nil?
+
       klass = find_class(collection_type)
 
       object_collection = collection_data.inject([]) do |collection,object_data|
