@@ -35,8 +35,7 @@ module Diggr
 
     def fetch
       response = make_request
-      parser = Diggr::JSONParser.new
-      parser.parse(response)
+      Diggr::JSONParser.new.parse(response)
     end
 
     private
