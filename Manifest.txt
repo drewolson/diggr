@@ -4,6 +4,7 @@ README.txt
 Rakefile
 lib/diggr.rb
 lib/diggr/api.rb
+lib/diggr/api_error.rb
 lib/diggr/constants.rb
 lib/diggr/json_parser.rb
 lib/diggr/request.rb
@@ -13,6 +14,7 @@ lib/diggr/response_classes/digg.rb
 lib/diggr/response_classes/error.rb
 lib/diggr/response_classes/medium.rb
 lib/diggr/response_classes/photo.rb
+lib/diggr/response_classes/story.rb
 lib/diggr/response_classes/topic.rb
 lib/diggr/response_classes/user.rb
 test/test_api.rb
@@ -24,5 +26,6 @@ test/test_json_parser.rb
 test/test_medium.rb
 test/test_photo.rb
 test/test_request.rb
+test/test_story.rb
 test/test_topic.rb
 test/test_user.rb
