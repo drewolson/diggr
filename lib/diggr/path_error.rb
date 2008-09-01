@@ -1,1 +1,0 @@
-class PathError < StandardError; end
