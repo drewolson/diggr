@@ -1,3 +1,4 @@
+require 'enumerator'
 require 'cgi'
 require 'net/http'
 require 'rubygems'
@@ -7,6 +8,8 @@ need { 'json_parser' }
 
 module Diggr
   class Request
+    include Enumerable
+
     def initialize
       @end_point = ''
       @options = nil
@@ -27,10 +30,8 @@ module Diggr
       self
     end
 
-    def each
-      fetch.each do |item|
-        yield item
-      end
+    def each(&block)
+      fetch.each(&block)
     end
 
     def fetch

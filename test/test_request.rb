@@ -1,8 +1,11 @@
 require 'rubygems'
 require 'test/unit'
+require 'mocha'
 require 'need'
 need { '../lib/diggr/request' }
+need { '../lib/diggr/response_classes/story' }
 need { '../lib/diggr/constants' }
+need { '../lib/diggr/json_parser' }
 
 class TestRequest < Test::Unit::TestCase
   def test_request_instantiation
@@ -84,5 +87,25 @@ class TestRequest < Test::Unit::TestCase
     request.stories(1,2,3,4)
 
     assert_equal '/stories/1,2,3,4', request.send(:instance_variable_get,"@end_point")
+  end
+
+  def test_fetch
+    story = Diggr::Story.new
+    Diggr::JSONParser.any_instance.stubs(:parse).with(story).returns(story) 
+    request = Diggr::Request.new
+    request.stubs(:make_request).returns(story)
+
+    assert_equal story, request.fetch 
+  end
+
+  def test_each
+    stories = [Diggr::Story.new,Diggr::Story.new]
+    Diggr::JSONParser.any_instance.stubs(:parse).with(stories).returns(stories) 
+    request = Diggr::Request.new
+    request.stubs(:make_request).returns(stories)
+
+    request.each do |item|
+      assert_instance_of Diggr::Story, item
+    end
   end
 end
