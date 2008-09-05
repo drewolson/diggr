@@ -11,7 +11,7 @@ http://apidoc.digg.com/CompleteList. Endpoints are created in Diggr with method 
 Each node in an endpoint becomes a method call and each node which is an argument becomes 
 an argument to the previous method. As an example, the following endpoint
 
-/user/[user name]
+/user/{user name}
 
 in which the user name is "johndoe" would be created with this Diggr call:
 
@@ -29,6 +29,9 @@ terminated in one of two ways.
    unnecessary to use the fetch method.
 
 See the synopsis for examples of each of these types of calls.
+
+Options such as count or offset can be set using the options method and providing a hash of 
+arguments. See synopsis for more information.
 
 Note: In an effort to remain consistent with the Digg API, some method names do not follow
 the ruby idiom of underscores. Although somewhat ugly, this allows a user read the Digg API
