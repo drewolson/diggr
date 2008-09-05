@@ -1,6 +1,7 @@
 = diggr
 
-* http://diggr.rubyforge.org
+* Documentation - http://diggr.rubyforge.org
+* Source - http://github.com/dfg59/diggr/tree/master
 
 == DESCRIPTION:
 
