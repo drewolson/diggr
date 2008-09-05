@@ -6,10 +6,10 @@
 
 Diggr is a ruby wrapper for the Digg API.
 
-Diggr strives to remain consistent with the Digg API endpoints listed here: http://api.digg.com.
-Endpoints are created in Diggr with method calls. Each node in an endpoint becomes a method call
-and each node which is an argument becomes an argument to the previous method. As an example,
-the following endpoint
+Diggr strives to remain consistent with the Digg API endpoints listed here: 
+http://apidoc.digg.com/CompleteList. Endpoints are created in Diggr with method calls. 
+Each node in an endpoint becomes a method call and each node which is an argument becomes 
+an argument to the previous method. As an example, the following endpoint
 
 /user/[user name]
 
