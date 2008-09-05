@@ -10,4 +10,16 @@ class TestJSONParser < Test::Unit::TestCase
 
     assert_equal Diggr::Topic, parser.send(:find_class, 'topics')
   end
+
+  def test_cleanse_json
+    parser = Diggr::JSONParser.new
+
+    data = {
+      "stories" => { :test => "foo" },
+      "foo" => "bar",
+      "baz" => "boom"
+    }
+
+    assert_equal(["stories", { :test => "foo" }], parser.send(:cleanse_json, data))
+  end
 end

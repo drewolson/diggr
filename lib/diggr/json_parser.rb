@@ -3,6 +3,7 @@ require 'active_support/inflector'
 require 'json'
 require 'need'
 need { 'api_error' }
+need { 'constants' }
 
 module Diggr
   class JSONParser
