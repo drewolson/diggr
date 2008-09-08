@@ -78,7 +78,7 @@ and understand the exact methods to call in Diggr to achieve their desired resul
 
 * need 1.0.2 or greater
 * json 1.1.3 or greater
-* activesupport 2.1.0 or greater
+* activesupport 2.1.1 or greater
 
 == INSTALL:
 
