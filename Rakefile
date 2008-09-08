@@ -9,7 +9,7 @@ Hoe.new('diggr', Diggr::VERSION) do |p|
   p.developer('Drew Olson', 'drew@drewolson.org')
   p.extra_deps << ['need', '>= 1.0.2']
   p.extra_deps << ['json', '>= 1.1.3']
-  p.extra_deps << ['activesupport', '>= 2.1.0']
+  p.extra_deps << ['activesupport', '>= 2.1.1']
   p.remote_rdoc_dir = ''
 end
 

@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'active_support/inflector'
+require 'active_support'
 require 'json'
 require 'need'
 need { 'api_error' }
@@ -42,9 +42,9 @@ module Diggr
     end
 
     def find_class(collection_type)
-      file_name = Inflector.singularize(collection_type)
+      file_name = collection_type.singularize
       need { File.join('response_classes',file_name) }
-      Inflector.constantize('Diggr::'+ Inflector.camelize(file_name))
+      ('Diggr::' + file_name.camelize).constantize
     end 
   end
 end
