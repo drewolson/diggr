@@ -1,3 +1,9 @@
+=== 0.1.1 / 2008-09-08
+
+* 1 major bug-fix
+
+  * Updated to work with activesupport 2.1.1
+
 === 0.1.0 / 2008-08-26
 
 * 1 major enhancement
