@@ -108,4 +108,15 @@ class TestRequest < Test::Unit::TestCase
       assert_instance_of Diggr::Story, item
     end
   end
+
+  def test_each_with_singular_response
+    story = Diggr::Story.new
+    Diggr::JSONParser.any_instance.stubs(:parse).with(story).returns(story) 
+    request = Diggr::Request.new
+    request.stubs(:make_request).returns(story)
+
+    request.each do |item|
+      assert_instance_of Diggr::Story, item
+    end
+  end
 end

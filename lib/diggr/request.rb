@@ -31,7 +31,13 @@ module Diggr
     end
 
     def each(&block)
-      fetch.each(&block)
+      result = fetch
+
+      if result.kind_of? Array
+        fetch.each(&block)
+      else
+        yield result
+      end
     end
 
     def fetch
