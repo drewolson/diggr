@@ -36,8 +36,8 @@ Options such as count or offset can be set using the options method and providin
 arguments. See synopsis for more information.
 
 Note: In an effort to remain consistent with the Digg API, some method names do not follow
-the ruby idiom of underscores. Although somewhat ugly, this allows a user read the Digg API
-and understand the exact methods to call in Diggr to achieve their desired results.
+the ruby idiom of underscores. Although somewhat ugly, this allows a user to read the Digg
+API and understand the exact methods to call in Diggr to achieve their desired results.
 
 == FEATURES/PROBLEMS:
 
