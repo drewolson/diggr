@@ -2,6 +2,7 @@
 
 * Documentation - http://diggr.rubyforge.org
 * Source - http://github.com/dfg59/diggr/tree/master
+* Ticket Tracking - http://drewolson.lighthouseapp.com/projects/16743-diggr/overview
 
 == DESCRIPTION:
 
