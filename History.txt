@@ -1,3 +1,9 @@
+=== 0.1.2 / 2008-09-09
+
+* 1 minor bug-fix
+
+  * Singular responses work with Enumerable methods
+
 === 0.1.1 / 2008-09-08
 
 * 1 major bug-fix
