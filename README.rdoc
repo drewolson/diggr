@@ -27,8 +27,7 @@ terminated in one of two ways.
    response. If the request is plural, you will receive a collection of objects stored in an
    array.
 
-2. Using any Enumerable method. This works only on plural requests. In this case, it is
-   unnecessary to use the fetch method.
+2. Using any Enumerable method. In this case, it is unnecessary to use the fetch method.
 
 See the synopsis for examples of each of these types of calls.
 
