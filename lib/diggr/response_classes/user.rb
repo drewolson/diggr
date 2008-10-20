@@ -1,6 +1,6 @@
 module Diggr
   class User
-    attr_accessor :name, :fullname, :icon, :registered, :profileviews, :links
+    attr_accessor :name, :fullname, :icon, :registered, :profileviews, :links, :mutual, :date
 
     def self.new_from_parsed_json(data)
       user = User.new
