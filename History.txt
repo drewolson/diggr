@@ -1,3 +1,9 @@
+=== 0.1.3 / 2008-09-09
+
+* 1 minor bug-fix
+
+  * Added more attributes to user class
+
 === 0.1.2 / 2008-09-09
 
 * 1 minor bug-fix
