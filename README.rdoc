@@ -1,7 +1,7 @@
 = diggr
 
 * Documentation - http://diggr.rubyforge.org
-* Source - http://github.com/dfg59/diggr/tree/master
+* Source - http://github.com/drewolson/diggr/tree/master
 * Issue Tracking - http://drewolson.lighthouseapp.com/projects/16743/home
 
 == DESCRIPTION:
@@ -86,7 +86,7 @@ API and understand the exact methods to call in Diggr to achieve their desired r
 * sudo gem install diggr
 
 * install from github (major and minor releases)
-* sudo gem install dfg59-diggr --source=http://gems.github.com
+* sudo gem install drewolson-diggr --source=http://gems.github.com
 
 == LICENSE:
 
