@@ -1,4 +1,3 @@
-(in /Users/admin/code/diggr)
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
