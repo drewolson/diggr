@@ -34,7 +34,7 @@ module Diggr
         collection << klass.new_from_parsed_json(object_data) 
       end
 
-      object_collection.size == 1 ? object_collection.first : object_collection
+      object_collection
     end
 
     def cleanse_json(parsed_data)
