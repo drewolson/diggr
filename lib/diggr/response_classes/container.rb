@@ -16,7 +16,7 @@ module Diggr
       container.short_name = data['short_name']
       
       if data.has_key? 'topics'
-        data['topics'].each do |topic_data|
+        data['topics'].each do | topic_data |
           container.topics << Topic.new_from_parsed_json(topic_data)
         end
       end
