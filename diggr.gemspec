@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{diggr}
-  s.version = "0.1.3"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Drew Olson"]
@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--main", "README.txt"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{diggr}
-  s.rubygems_version = %q{1.3.1}
+  s.rubygems_version = %q{1.1.4}
   s.summary = %q{Diggr is a ruby wrapper for the Digg API}
   s.test_files = ["test/test_api.rb", "test/test_comment.rb", "test/test_container.rb", "test/test_digg.rb", "test/test_error.rb", "test/test_json_parser.rb", "test/test_medium.rb", "test/test_photo.rb", "test/test_request.rb", "test/test_story.rb", "test/test_topic.rb", "test/test_user.rb"]
 
