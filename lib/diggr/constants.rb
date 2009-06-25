@@ -9,6 +9,8 @@ module Diggr
       :galleryphoto,
       :media,
       :medium,
+      :shorturl,
+      :shorturls,
       :stories,
       :story,
       :topic,
@@ -23,6 +25,7 @@ module Diggr
       "comments",
       "photos",
       "media",
+      "shorturls",
       "stories",
       "topics",
       "users"

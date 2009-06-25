@@ -4,11 +4,12 @@ need { 'user' }
 need { 'topic' }
 need { 'container' }
 need { 'photo' }
+need { 'short_url' }
 
 module Diggr
   class Story
     attr_accessor :id, :link, :submit_date, :diggs, :comments, :title, :description,
-      :status, :media, :user, :topic, :container, :thumbnail, :href
+      :status, :media, :user, :topic, :container, :thumbnail, :href, :shorturl
 
     def self.new_from_parsed_json(data)
       story = Story.new
@@ -21,6 +22,7 @@ module Diggr
       story.topic = Diggr::Topic.new_from_parsed_json(data['topic']) if data['topic']
       story.container = Diggr::Container.new_from_parsed_json(data['container']) if data['container']
       story.thumbnail = Diggr::Photo.new_from_parsed_json(data['thumbnail']) if data['thumbnail']
+      story.shorturl = Diggr::ShortUrl.new_from_parsed_json(data['shorturl'][0]) if data['shorturl']
 
       story
     end

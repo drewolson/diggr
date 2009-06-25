@@ -43,13 +43,17 @@ class TestStory < Test::Unit::TestCase
         "width" => 80,
         "height" => 80
       },
+      "shorturl" => [{
+        "short_url" => "http://digg.com/D123JKL",
+        "views" => 1
+      }],
       "href" => "http://digg.com/linux_unix/Jukebox_con_Linux"
     }
 
     photo = Diggr::Story.new_from_parsed_json(parsed_json_data)
 
     parsed_json_data.each do |key,val|
-      unless val.kind_of? Hash
+      unless val.kind_of? Hash or val.kind_of? Array
         assert_equal val, photo.send(key)
       end
     end 
