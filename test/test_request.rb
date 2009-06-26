@@ -46,7 +46,7 @@ class TestRequest < Test::Unit::TestCase
     request = Diggr::Request.new
     request.topics.options(:count => 5, :offset => 3)
 
-    assert_equal '&offset=3&count=5', request.send(:instance_variable_get,"@options")
+    assert_equal '&count=5&offset=3', request.send(:instance_variable_get,"@options")
   end
 
   def test_cleanse_string_with_forward_slash
