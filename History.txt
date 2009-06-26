@@ -1,3 +1,9 @@
+=== 0.1.6 / 2009-06-26
+
+* 1 minor feature
+
+  * Added support for providing your own app key
+
 === 0.1.5 / 2009-06-25
 
 * 1 minor feature
