@@ -17,6 +17,7 @@ lib/diggr/response_classes/photo.rb
 lib/diggr/response_classes/story.rb
 lib/diggr/response_classes/topic.rb
 lib/diggr/response_classes/user.rb
+lib/diggr/response_classes/short_url.rb
 test/test_api.rb
 test/test_comment.rb
 test/test_container.rb
