@@ -10,9 +10,10 @@ module Diggr
   class Request
     include Enumerable
 
-    def initialize
+    def initialize(app_key)
       @end_point = ''
       @options = ''
+      @app_key = app_key
     end
 
     def options(params)
@@ -65,7 +66,7 @@ module Diggr
     end
 
     def path
-      @end_point + "?appkey=#{cleanse(Diggr::Constants::APP_KEY)}" + @options
+      @end_point + "?appkey=#{cleanse(@app_key)}" + @options
     end
   end
 end
